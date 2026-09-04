@@ -1,0 +1,831 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nexus.com.br</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #06000a;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 25px 50px;
+        }
+
+        .tituloheader {
+            color: #8c39ff;
+            font-size: 28px;
+            text-transform: uppercase;
+        }
+
+        .linksheader {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .linksheader a {
+            color: white;
+            font-size: 16px;
+        }
+
+        .linksheader a:hover {
+            color: #8c39ff;
+        }
+
+        .ultimoslinksheader {
+            display: flex;
+            gap: 20px;
+        }
+
+        .ultimoslinksheader img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 720px;
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.95) 0%,
+                    rgba(0, 0, 0, 0.75) 40%,
+                    rgba(0, 0, 0, 0.15) 100%
+                ),
+                url("fotofundo.png");
+
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            display: flex;
+            align-items: center;
+
+            padding: 140px 50px 70px;
+        }
+
+        .hero-conteudo {
+            max-width: 650px;
+        }
+
+        .maisqueequipamentos {
+            color: #9855ff;
+            font-size: 15px;
+            letter-spacing: 4px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            line-height: 0.95;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #7d2cff;
+        }
+
+        .hero-descricao {
+            color: #c5c5c5;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .hero button {
+            background-color: #7d2cff;
+            color: white;
+
+            border: none;
+            border-radius: 10px;
+
+            padding: 15px 25px;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background-color: #934dff;
+        }
+
+        .cards-info {
+            display: flex;
+            gap: 65px;
+            margin-top: 55px;
+        }
+
+        .cards-info h2 {
+            font-size: 23px;
+            margin-bottom: 7px;
+        }
+
+        .cards-info p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* =========================
+           BENEFÍCIOS
+        ========================= */
+
+        .beneficios {
+            background-color: #0c0016;
+            padding: 70px 50px;
+        }
+
+        .beneficios > h2 {
+            text-align: center;
+            font-size: 20px;
+            letter-spacing: 4px;
+            margin-bottom: 50px;
+        }
+
+        .cards2 {
+            display: flex;
+            justify-content: center;
+            gap: 70px;
+            flex-wrap: wrap;
+        }
+
+        .cards2 article {
+            width: 210px;
+            text-align: center;
+        }
+
+        .cards2 img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .cards2 h3 {
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+
+        .cards2 p {
+            color: #aaa;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* =========================
+           PRODUTOS
+        ========================= */
+
+        .produtos {
+            background-color: #06000a;
+            padding: 70px 50px;
+        }
+
+        .divtextostitulosub {
+            margin-bottom: 35px;
+        }
+
+        .divtextostitulosub p {
+            color: #9855ff;
+            letter-spacing: 3px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .divtextostitulosub h2 {
+            font-size: 36px;
+        }
+
+        .cards-produtos {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .produto-card {
+            background-color: #0b0810;
+            border: 1px solid #1f1829;
+            border-radius: 10px;
+            overflow: hidden;
+            padding-bottom: 20px;
+        }
+
+        .produto-card > img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            background-color: #120a1c;
+        }
+
+        .produto-conteudo {
+            padding: 18px;
+        }
+
+        .produto-conteudo h3 {
+            margin-bottom: 8px;
+        }
+
+        .produto-descricao {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .produto-preco {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           COMUNIDADE
+        ========================= */
+
+        .comunidade {
+            min-height: 400px;
+
+            background-color: #0c0016;
+
+            padding: 80px 50px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .comunidade-conteudo {
+            max-width: 650px;
+        }
+
+        .comunidade-tag {
+            color: #9855ff;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .comunidade h2 {
+            font-size: 44px;
+            margin-bottom: 20px;
+        }
+
+        .comunidade h2 span {
+            color: #8c39ff;
+        }
+
+        .comunidade-descricao {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .form-email {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-email input {
+            width: 300px;
+
+            padding: 15px;
+
+            background-color: transparent;
+            border: 1px solid #555;
+            border-radius: 7px;
+
+            color: white;
+        }
+
+        .form-email button {
+            background-color: #7d2cff;
+            color: white;
+
+            border: none;
+            border-radius: 7px;
+
+            padding: 15px 25px;
+
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background-color: #030005;
+            padding: 35px 50px;
+        }
+
+        .footer-conteudo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        footer h2 {
+            color: #8c39ff;
+        }
+
+        footer p {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .redes-sociais {
+            display: flex;
+            gap: 15px;
+        }
+
+        .redes-sociais img {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .header {
+                padding: 20px;
+            }
+
+            .linksheader {
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 140px 25px 60px;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .cards-produtos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-conteudo {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .header {
+                position: relative;
+                background-color: #06000a;
+
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .linksheader {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 70px 20px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .cards-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .cards-produtos {
+                grid-template-columns: 1fr;
+            }
+
+            .form-email {
+                flex-direction: column;
+            }
+
+            .form-email input {
+                width: 100%;
+            }
+
+            .comunidade h2 {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <h1 class="tituloheader">Nexus</h1>
+
+        <nav>
+            <ul class="linksheader">
+
+                <li>
+                    <a href="#">Início</a>
+                </li>
+
+                <li>
+                    <a href="#">Produtos</a>
+                </li>
+
+                <li>
+                    <a href="#">Sobre</a>
+                </li>
+
+                <li>
+                    <a href="#">Contato</a>
+                </li>
+
+                <li>
+                    <ul class="ultimoslinksheader">
+                        <li>
+                            <a href="#">
+                                <img src="icons8-pesquisa-64.png" alt="Pesquisar">
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <img src="icons8-carrinho-64.png" alt="Carrinho">
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-conteudo">
+
+                <p class="maisqueequipamentos">
+                    MAIS QUE EQUIPAMENTOS
+                </p>
+
+                <h1>
+                    ELEVE SEU <br>
+                    <span>JOGO</span>
+                </h1>
+
+                <p class="hero-descricao">
+                    Na Nexus, tecnologia e performance se unem
+                    para levar sua experiência gamer a outro nível.
+                </p>
+
+                <button>
+                    Explorar Produtos
+                </button>
+
+                <div class="cards-info">
+
+                    <div>
+                        <h2>+10K</h2>
+                        <p>Clientes satisfeitos</p>
+                    </div>
+
+                    <div>
+                        <h2>+50</h2>
+                        <p>Produtos disponíveis</p>
+                    </div>
+
+                    <div>
+                        <h2>4.9 ★</h2>
+                        <p>Avaliação média</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BENEFÍCIOS -->
+        <section class="beneficios">
+
+            <h2>POR QUE ESCOLHER A NEXUS?</h2>
+
+            <div class="cards2">
+
+                <article>
+                    <img src="foguete.png" alt="Performance">
+
+                    <h3>Alta Performance</h3>
+
+                    <p>
+                        Equipamentos feitos para quem busca o máximo.
+                    </p>
+                </article>
+
+
+                <article>
+                    <img src="qualidade.png" style="border-radius: 50%;" alt="Qualidade">
+
+                    <h3>Qualidade Garantida</h3>
+
+                    <p>
+                        Produtos testados e aprovados por gamers reais.
+                    </p>
+                </article>
+
+
+                <article>
+                    <img src="carrinhofundopreto.png" style="border-radius: 50%;" alt="Entrega">
+
+                    <h3>Entrega Rápida</h3>
+
+                    <p>
+                        Receba seu pedido com segurança e agilidade.
+                    </p>
+                </article>
+
+
+                <article>
+                    <img src="suporte.png" alt="Suporte">
+
+                    <h3>Suporte Especializado</h3>
+
+                    <p>
+                        Nossa equipe está pronta para ajudar sempre.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRODUTOS -->
+        <section class="produtos">
+
+            <div class="divtextostitulosub">
+
+                <p>PARA TODOS OS ESTILOS</p>
+
+                <h2>NOSSOS DESTAQUES</h2>
+
+            </div>
+
+
+            <div class="cards-produtos">
+
+                <article class="produto-card">
+
+                    <img src="fone.png" alt="Headset Nexus">
+
+                    <div class="produto-conteudo">
+
+                        <h3>Headset NEXUS 7.1</h3>
+
+                        <p class="produto-descricao">
+                            Som imersivo. Total controle.
+                        </p>
+
+                        <p class="produto-preco">
+                            R$ 299,90
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="produto-card">
+
+                    <img src="teclado.png" alt="Teclado Nexus">
+
+                    <div class="produto-conteudo">
+
+                        <h3>Teclado NEXUS Pro</h3>
+
+                        <p class="produto-descricao">
+                            Precisão em cada tecla.
+                        </p>
+
+                        <p class="produto-preco">
+                            R$ 349,90
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="produto-card">
+
+                    <img src="mouse.png" alt="Mouse Nexus">
+
+                    <div class="produto-conteudo">
+
+                        <h3>Mouse NEXUS Ultra</h3>
+
+                        <p class="produto-descricao">
+                            Velocidade que faz a diferença.
+                        </p>
+
+                        <p class="produto-preco">
+                            R$ 199,90
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="produto-card">
+
+                    <img src="mousepad.png" alt="Mousepad Nexus">
+
+                    <div class="produto-conteudo">
+
+                        <h3>Mousepad NEXUS Glow</h3>
+
+                        <p class="produto-descricao">
+                            Mais espaço para suas vitórias.
+                        </p>
+
+                        <p class="produto-preco">
+                            R$ 89,90
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMUNIDADE -->
+        <section class="comunidade">
+
+            <div class="comunidade-conteudo">
+
+                <p class="comunidade-tag">
+                    FAÇA PARTE
+                </p>
+
+                <h2>
+                    UMA COMUNIDADE <br>
+                    QUE <span>JOGA JUNTO</span>
+                </h2>
+
+                <p class="comunidade-descricao">
+                    Receba novidades, promoções e conteúdos exclusivos
+                    diretamente no seu e-mail.
+                </p>
+
+                <div class="form-email">
+
+                    <input
+                        type="email"
+                        placeholder="Seu melhor e-mail"
+                    >
+
+                    <button>
+                        QUERO PARTICIPAR
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-conteudo">
+
+            <h2>NEXUS</h2>
+
+            <p>
+                © 2026 Nexus. Todos os direitos reservados.
+            </p>
+            
+            <p>
+                Projeto conceito desenvolvido pela <span style="color: blue;">Prime Code Web</span> 
+            </p>
+            <div class="footer-links">
+
+                <a href="#">
+                    Política de Privacidade
+                </a>
+
+                <a href="#">
+                    Termos de Uso
+                </a>
+
+                <a href="#">
+                    Contato
+                </a>
+
+            </div>
+
+
+            <ul class="redes-sociais">
+
+                <li>
+                    <a href="#">
+                        <img src="icons8-instagram-logo-94.png" alt="Instagram">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img src="icons8-logotipo-do-youtube-94.png" alt="YouTube">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img src="icons8-twitterx-30.png" style="color: white;" alt="X">
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
